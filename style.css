@@ -11,13 +11,16 @@
 
 /* Setting up the body */
 body {
-   width: 560px;
-   height: 800px;
+  width: 100%;
+  max-width: 660px;
+  margin: 0 auto;
+  height: 800px;
  }
 
  .sub-container1 {
    height: 220px;
    display: flex;
+   justify-content: center;
    margin-left: 10px;
    margin-bottom: 30px;
  }
@@ -27,16 +30,20 @@ body {
  }
 
  .sub-container2{
-   margin-left: 10px;
-   margin-bottom: 30px;
+  margin: 0 10px 30px 10px;
  }
 
  #tasks-container{
-   margin-left: 10px;
-   margin-bottom: 30px;
+  margin: 0 10px 30px 10px;
  }
 
  /* setting up the table */
  table, th, td {
   border:1px solid black;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
 }

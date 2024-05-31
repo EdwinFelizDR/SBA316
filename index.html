@@ -1,37 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>To-do list</title>
-   <link rel="stylesheet" href="style.css">
-</head>
-<body>
-   <div class="container">
-   <div class="sub-container1">
-      <img id="banner" src="/img/to-do list.png" alt="To-do list">
-   </div >
-   <div class="sub-container2">
-      <h2 id="header2">Add an item:</h2>
-      <form class="form">
-         <label for="itemText">Add something to do:</label>
-         <!-- 13. Include at least one form and/or input with HTML attribute validation.  -->
-         <input type="text" name="itemText" id="itemText" maxlength="100" minlength="10" required>
-         <input type="date" id="date" name="byDate" required>
-      </form>
-      <button type="button" id="submitBtn">Click Me!</button>
-   </div>
-   <div id="tasks-container">
-      <h2>Tasks:</h2>
-      <table id="tbl">
-         <tr>
-            <th>By date</th>
-            <th>Description</th>
-            <th>Status</th>
-         </tr>
-      </table>
-   </div>
-   </div>
-   <script src='app.js'></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-do list</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="sub-container1">
+        <img id="banner" src="/img/to-do list.png" alt="To-do list" />
+      </div>
+      <div class="sub-container2">
+        <h2 id="header2">Add an item:</h2>
+        <form id="taskForm">
+          <!-- 13. Include at least one form and/or input with HTML attribute validation.  -->
+          <!-- Input to describe activity -->
+          <label for="itemText">Add something to do:</label>
+          <input
+            type="text"
+            name="itemText"
+            id="itemText"
+            maxlength="100"
+            minlength="10"
+            required
+          />
+          <!-- complete activity by date -->
+          <label for="date">By date:</label>
+          <input type="date" id="date" name="byDate" required />
+          <button type="submit" id="submitBtn">Add task</button>
+        </form>
+      </div>
+      <div id="tasks-container">
+        <h2>Tasks:</h2>
+        <table id="tbl">
+          <thead>
+            <tr id="tblheader">
+              <th>By date</th>
+              <th>Description</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Tasks will be added here dynamically -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
 </html>
