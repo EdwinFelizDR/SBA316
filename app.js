@@ -2,6 +2,7 @@
 const submitBtn = document.querySelector('#submitBtn');
 const tbl = document.querySelector('#tbl');
 const tblheader = document.querySelector("#tblheader").children;
+const feedbackMessage = document.getElementById('feedbackMessage');
 
 console.log(tblheader);
 
@@ -13,11 +14,29 @@ Array.from(tblheader).forEach(element => {
    element.style.color = "blue";
 });
 
+// Function to validate date
+function validateDate() {
+   const dateEl = document.getElementById('date');
+   const selectedDate = new Date(dateEl.value);
+   const today = new Date();
+
+   // Check if the selected date is before today
+   if (selectedDate < today ) {
+      window.alert('Please select a valid date (after today).');
+      return false;
+   }
+   return true;
+}
+
 // Register at least two different event listeners and create the associated event handler functions
 // Event handler to add task
 function addTask(event) {
    event.preventDefault();
-   alert('Task added successfully!');
+
+   //Check the date to ensure is not before today
+   if (!validateDate()) {
+      return;
+   }
 
    //1. Cache at least one element using selectElementById. 
    //Getting the element input box
@@ -47,6 +66,10 @@ function addTask(event) {
    doneBtn.addEventListener('click', () => {
       tdElstatus.textContent = 'Completed';
       trEl.style.textDecoration = 'line-through';
+
+      //10. Modify at least one attribute of an element in response to user interaction. 
+      // Disable the button if done is press
+      doneBtn.setAttribute('disabled', 'true');
    });
 
    //6. Use appendChild and/or prepend to add new elements to the DOM. 
@@ -56,11 +79,21 @@ function addTask(event) {
    tbl.appendChild(trEl);
    trEl.appendChild(doneBtn);
 
+   // Update feedback message
+      feedbackMessage.innerText = 'Task added successfully!';
 
+   //Show the feedback message for 5 seconds
+   setTimeout(() => {
+      feedbackMessage.innerText = '';
+   }, 3000);
+
+   //clear input fields
       inputEl.value = '';
       dateEl.value = '';
+
    } else {
-      alert('Please fill in all fields.');
+      //12. Use at least two Browser Object Model (BOM) properties or methods. 
+      window.alert('Please fill in all fields.');
    }
 }
 
