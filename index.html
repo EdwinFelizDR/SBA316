@@ -15,8 +15,9 @@
       <h2 id="header2">Add an item:</h2>
       <form class="form">
          <label for="itemText">Add something to do:</label>
-         <input type="text" name="itemText" id="itemText" maxlength="100" minlength="10">
-         <input type="date" id="date" name="byDate">
+         <!-- 13. Include at least one form and/or input with HTML attribute validation.  -->
+         <input type="text" name="itemText" id="itemText" maxlength="100" minlength="10" required>
+         <input type="date" id="date" name="byDate" required>
       </form>
       <button type="button" id="submitBtn">Click Me!</button>
    </div>
